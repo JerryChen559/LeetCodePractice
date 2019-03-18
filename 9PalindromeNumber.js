@@ -18,10 +18,24 @@
 // -------------------------------------------------------------------------------
 
 var isPalindrome = function(x) {
-  let reverse_x = x
-    .toString()
-    .split("")
-    .reverse()
-    .join("");
-  return reverse_x == x ? true : false;
+  if (x < 0 || (x != 0 && x / 10 == 0)) return false;
+
+  let reverse_x = 0;
+  let original = x;
+  while (x != 0) {
+    reverse_x = reverse_x * 10 + (x % 10);
+    x = (x - (x % 10)) / 10;
+  }
+
+  return reverse_x == original;
 };
+
+// string way. Note: less efficient
+// var isPalindrome2 = function(x) {
+//   let reverse_x = x
+//     .toString()
+//     .split("")
+//     .reverse()
+//     .join("");
+//   return reverse_x == x ? true : false;
+// };
