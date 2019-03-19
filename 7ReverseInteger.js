@@ -18,9 +18,19 @@
 // -------------------------------------------------------------------------------
 
 var reverse = function(x) {
-  if (x < -(2 ** 31)) return 0;
-  if (x > 2 ** 31 - 1) return 0;
+  let flipped_x = 0;
+  while (x != 0) {
+    flipped_x = flipped_x * 10 + (x % 10);
+    x = (x - (x % 10)) / 10;
+  }
 
+  let min = -1 * Math.pow(2, 31);
+  let max = Math.pow(2, 31) - 1;
+  if (flipped_x >= max || flipped_x <= min) return 0;
+  return flipped_x;
+};
+
+var reverse2 = function(x) {
   let flipped = x
     .toString()
     .split("")
@@ -29,5 +39,9 @@ var reverse = function(x) {
     flipped.pop();
     flipped.unshift("-");
   }
-  return +flipped.join("");
+  let answer = +flipped.join("");
+
+  if (answer < -1 * 2 ** 31) return 0;
+  if (answer > 2 ** 31 - 1) return 0;
+  return answer;
 };
