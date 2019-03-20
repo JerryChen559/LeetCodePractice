@@ -35,18 +35,18 @@ var twoSum = function(nums, target) {
 // var twoSum2 = function(nums, target) {
 //   let values = [];
 //   for (let i = 0; i < nums.length; i++) {
-//       values.push([i, nums[i]])
+//     values.push([i, nums[i]]);
 //   }
-//   values.sort((a, b) => a[1] - b[1])
+//   values.sort((a, b) => a[1] - b[1]);
 
 //   for (let i = 0, j = nums.length - 1; i < j; ) {
-//       if (values[i][1] + values[j][1] == target) {
-//           if (values[i][0] < values[j][0]) return [values[i][0], values[j][0]]
-//           else return [values[j][0], values[i][0]]
-//       }
+//     if (values[i][1] + values[j][1] == target) {
+//       if (values[i][0] < values[j][0]) return [values[i][0], values[j][0]];
+//       else return [values[j][0], values[i][0]];
+//     }
 
-//       if (values[i][1] + values[j][1] > target) j--
-//       else i++
+//     if (values[i][1] + values[j][1] > target) j--;
+//     else i++;
 //   }
 // };
 
