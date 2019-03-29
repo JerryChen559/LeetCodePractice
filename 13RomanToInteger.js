@@ -42,8 +42,9 @@
 
 // -------------------------------------------------------------------------------
 
+// conversion tables
 var romanToInt = function(s) {
-  const values = new Map([
+  const values = new map([
     ["I", 1],
     ["V", 5],
     ["X", 10],
@@ -52,6 +53,7 @@ var romanToInt = function(s) {
     ["D", 500],
     ["M", 1000]
   ]);
+
   let result = 0,
     current,
     previous = 0;
@@ -65,47 +67,40 @@ var romanToInt = function(s) {
     previous = current;
   }
   return result;
+};
 
-  if ((s = null || s.length == 0)) return 0;
+// nogo
+// conversion table solution 2
+var romanToInt2 = function(s) {
+  const values = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000
+  };
 
-  let numsArray = s.toString();
-  return numsArray;
+  // return values.I
+
+  if (s == null || s.length == 0) return 0;
+
+  let numsArray = s.split("");
+  // return numsArray;
+
   let total = 0;
   for (let i = numsArray.length - 1; i > 0; i--) {
-    if (numsArray[i] > numsArray[i - 1]) {
-      total += numsArray[i];
+    //return values.numsArray[i] // nogo
+    // return numsArray[i]
+    if (values.charAt(numsArray[i]) > values.numsArray[i - 1]) {
+      total -= values.numsArray[i];
     }
-    if (numsArray[i] < numsArray[i - 1]) {
-      total -= numsArray[i];
+    if (values.numsArray[i] <= values.numsArray[i - 1]) {
+      total += values.numsArray[i];
     }
   }
   return total;
 };
 
-//nogo
-var romanToInt2 = function(s) {
-  const values = new Map([
-    ["I", 1],
-    ["V", 5],
-    ["X", 10],
-    ["L", 50],
-    ["C", 100],
-    ["D", 500],
-    ["M", 1000]
-  ]);
-
-  //     if (s = null || s.length == 0) return 0
-
-  //     let numsArray = s.toString()
-  //     return numsArray
-  // let total = 0
-  // for (let i = numsArray.length-1; i > 0 ; i--){
-  //     if (numsArray[i] > numsArray[i-1] ){
-  //         total += numsArray[i]
-  //     }
-  //     if (numsArray[i] < numsArray[i-1] ){
-  //         total -= numsArray[i]
-  //     }
-  // }
-  // return total;
-};
+// romanToInt2("III");
