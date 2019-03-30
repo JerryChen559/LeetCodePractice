@@ -44,7 +44,7 @@
 
 // conversion tables
 var romanToInt = function(s) {
-  const values = new map([
+  const values = new Map([
     ["I", 1],
     ["V", 5],
     ["X", 10],
@@ -69,7 +69,6 @@ var romanToInt = function(s) {
   return result;
 };
 
-// nogo
 // conversion table solution 2
 var romanToInt2 = function(s) {
   const values = {
@@ -82,25 +81,19 @@ var romanToInt2 = function(s) {
     M: 1000
   };
 
-  // return values.I
-
   if (s == null || s.length == 0) return 0;
 
   let numsArray = s.split("");
-  // return numsArray;
 
-  let total = 0;
-  for (let i = numsArray.length - 1; i > 0; i--) {
-    //return values.numsArray[i] // nogo
-    // return numsArray[i]
-    if (values.charAt(numsArray[i]) > values.numsArray[i - 1]) {
-      total -= values.numsArray[i];
+  let total = values[numsArray[numsArray.length - 1]];
+
+  for (let i = numsArray.length - 1; i >= 1; i--) {
+    if (values[numsArray[i]] > values[numsArray[i - 1]]) {
+      total -= values[numsArray[i - 1]];
     }
-    if (values.numsArray[i] <= values.numsArray[i - 1]) {
-      total += values.numsArray[i];
+    if (values[numsArray[i]] <= values[numsArray[i - 1]]) {
+      total += values[numsArray[i - 1]];
     }
   }
   return total;
 };
-
-// romanToInt2("III");
