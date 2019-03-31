@@ -43,6 +43,7 @@
 // -------------------------------------------------------------------------------
 
 // conversion tables
+// Note: reversed string accesses mapped values (no object created)
 var romanToInt = function(s) {
   const values = new Map([
     ["I", 1],
@@ -70,6 +71,7 @@ var romanToInt = function(s) {
 };
 
 // conversion table solution 2
+// Note: creating an object for the loop to find the values.
 var romanToInt2 = function(s) {
   const values = {
     I: 1,
